@@ -1,4 +1,5 @@
-# NG5 help
+# NG5
+#help me pls
 # Graphql
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.8.
 
