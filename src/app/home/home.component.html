@@ -1,24 +1,46 @@
 
-<div class="container color-dark">
+<div class="container">
 
-  <div class="col">
-    <p> Add a tree to the list  -  Your tree list ( {{ itemCount }} ) </p>
+    <!-- <app-tree-stadistics></app-tree-stadistics> -->
 
+  <div class="container">
+    <div class="row">
+      <div class="col-4">
+        <form id="login">
+          <div class="form-group my-3">
+            <label for="exampleInputUser1">User</label> <br>
+            <input type="text" class="form-control" id="exampleInputUser1" aria-describedby="emailHelp" placeholder="Enter user" [(ngModel)]= "user">
+            <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+          </div>
+          <div class="form-group my-3">
+            <label for="exampleInputPassword1">Password</label><br>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" [(ngModel)]= "pass">
+          </div>
+          <!-- <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+          </div> -->
+          <button type="submit" class="btn btn-primary" value="login" (click)="loginUser()">Submit</button>
+        </form>
+        
+        <!-- <form>
+          <input type="text" class="txt1" name="item" placeholder="user" [(ngModel)]= "user">
+          <input type="password" class="txt1" name="item" placeholder="pass" [(ngModel)]= "pass">
+         <input type="submit" class="btn1" value="login" (click)="loginUser()">
+        </form> -->
+    
+        {{ token }}
+      </div>
+    </div>
   </div>
-  <div class="col">
-    <form>
-      <input type="text" class="txt1" name="item" placeholder="user" [(ngModel)]= "user">
-      <input type="password" class="txt1" name="item" placeholder="pass" [(ngModel)]= "pass">
-     <input type="submit" class="btn1" value="login" (click)="loginUser()">
-    </form>
-
-    {{ token }}
-  </div>
+  
+  
 
 </div>
 
-<div class="container color-light">
+<div class="container my-5 color-light rounded">
   <div class="col">
+    <p> Add a tree to the list  -  Your tree list ( {{ itemCount }} ) </p>
     <p class="sm">
       Use this form below to add a new tree
     </p>

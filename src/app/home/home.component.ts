@@ -3,6 +3,7 @@ import { DataService } from '../data.service';
 import { GraphqlProductsService} from '../graphql.products.service';
 import { Subscription } from 'rxjs';
 import { GraphqlUsersService} from '../graphql.users.service';
+import { DoBootstrap } from '@angular/core';
 
 
 @Component({

@@ -1,3 +1,4 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
 .container {
     display: grid;
     grid-template-columns: 50% auto;
@@ -7,12 +8,12 @@
 }
 
 .color-dark {
-    background: #42692f;
+    background: #333;
 }
 
 .color-light {
 
-    background: #008000;
+    background: #3d9535;
 
 }
 
@@ -38,4 +39,8 @@ input.btn {
     padding: .5em;
     font-weight: bold;
     cursor: pointer;
+}
+
+.dark-font{
+    color: #333 !important;
 }
