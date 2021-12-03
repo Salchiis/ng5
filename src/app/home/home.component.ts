@@ -3,7 +3,6 @@ import { DataService } from '../data.service';
 import { GraphqlProductsService} from '../graphql.products.service';
 import { Subscription } from 'rxjs';
 import { GraphqlUsersService} from '../graphql.users.service';
-import { DoBootstrap } from '@angular/core';
 
 
 @Component({
@@ -15,12 +14,23 @@ export class HomeComponent implements OnInit {
 
   itemCount: number = 0;
   btnText: string = "add an item";
-  goalText: string = ""
+  url: string = "";
+  description: string = ""
+  postedby: string = ""
   user: string = ""
   pass: string = ""
   token: string = ""
+  goals: string[] = [];
+  trees: string[] = [];
+  planter: string[] = [];
 
-  goals = [];
+  // trees = [];
+  // description = [];
+  // postedby = [];
+  // OnClick(value) {
+  //   this.url = value;
+  // }
+
 
   loading!: boolean;
   private querySubscription!: Subscription;
@@ -73,12 +83,17 @@ export class HomeComponent implements OnInit {
 
   addItem() {
 //    this.goals.push(this.goalText);
+      this.goals.push(this.url);
+      this.trees.push(this.description);
+      this.planter.push(this.postedby);
+      this.url = '';
+      this.itemCount = this.goals.length;
 
 
     var mytoken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImpvbmF0YXMiLCJleHAiOjE2MzU4MDkxNjcsIm9yaWdJYXQiOjE2MzU4MDg4Njd9.ryjClFhpysIjiYm7Ry1MyIkU4jLVF_63kaSEZ0jOtQQ";
-    alert(this.goalText);
+    //alert(this.description);
 
-    this.graphqlProductsService.createLink(mytoken, "https://www.github.com", this.goalText)
+    this.graphqlProductsService.createLink(mytoken, "https://www.github.com", this.url)
     .subscribe(({ data }) => {
        console.log('link created :  ', data);
     }, (error) => {
@@ -88,13 +103,17 @@ export class HomeComponent implements OnInit {
    
 
 
-    this.goalText = "";
+    this.url = "";
+    this.description = "";
+    this.postedby = "";
     this.itemCount = this.goals.length;
-    this._data.changeGoal(this.goals);
+    this._data.changeGoal(this.url);
+    this._data.changeGoal(this.description);
+    this._data.changeGoal(this.postedby);
   }
 
   removeItem(i) {
     this.goals.splice(i,1);
-    this._data.changeGoal(this.goals);
+    this._data.changeGoal(this.url);
   }
 }
